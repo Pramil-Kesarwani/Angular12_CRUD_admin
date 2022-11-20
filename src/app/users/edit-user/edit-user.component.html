@@ -1,0 +1,35 @@
+<div *ngIf="dataLoaded">
+<mat-card class="edit-user">
+    <mat-card-title>Update User</mat-card-title>
+        <mat-card-content style="margin-top: 20px;">
+            <!-- in submit function we don't have to enter the formName as a parameter in Reactive forms
+                we pass the formName value as a parameter on template Driven Forms  -->
+            <form [formGroup]="editUserForm" (submit)="updateUser()"> 
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>userName</mat-label>
+                        <input matInput placeholder="userName" formControlName="userName">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput placeholder="Enter Email" formControlName="email">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>PhoneNo</mat-label>
+                        <input matInput placeholder="Enter phoneNo" formControlName="phoneNo">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <button mat-raised-button color="primary">Update User</button>
+                </p>
+            </form>
+        </mat-card-content>
+</mat-card>
+</div>

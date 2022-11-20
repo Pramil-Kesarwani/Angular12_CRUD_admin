@@ -1,0 +1,51 @@
+<mat-card class="add-user">
+    <mat-card-title>Create New User</mat-card-title>
+        <mat-card-content>
+            <!-- in submit function we don't have to enter the formName as a parameter in Reactive forms
+                we pass the formName value as a parameter on template Driven Forms  -->
+            <form [formGroup]="addUserForm" (submit)="createUser()"> 
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>userName</mat-label>
+                        <input matInput placeholder="userName" formControlName="userName">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="addUserForm.controls['userName'].errors && addUserForm.controls['userName'].hasError('required')">
+                            userName is required field.
+                        </mat-error>
+                        <mat-error *ngIf="addUserForm.controls['userName'].errors && addUserForm.controls['userName'].hasError('minlength')">
+                            userName length should be greater than 3.
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput placeholder="Enter Email" formControlName="email">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('required')">
+                            Email Address is required field.
+                        </mat-error>
+                        <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('email')">
+                            Email Address is not Correct.
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>PhoneNo</mat-label>
+                        <input matInput placeholder="Enter phoneNo" formControlName="phoneNo">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="addUserForm.controls['phoneNo'].errors && addUserForm.controls['phoneNo'].hasError('required')">
+                            Phone No is required field.
+                        </mat-error>
+                        <mat-error *ngIf="addUserForm.controls['phoneNo'].errors && addUserForm.controls['phoneNo'].hasError('maxlength')">
+                            Phone number should be max of 10 numbers.
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <button mat-raised-button color="primary" [disabled]="addUserForm.invalid">Create User</button>
+                </p>
+            </form>
+        </mat-card-content>
+</mat-card>

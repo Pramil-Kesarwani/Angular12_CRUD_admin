@@ -1,0 +1,16 @@
+<mat-selection-list #home [multiple]="false">
+  <mat-list-option [value]="home">
+    <a routerLink="/users">Home</a>
+  </mat-list-option>
+  <mat-divider></mat-divider>
+  <mat-list-option [value]="home">
+    <!-- using routerLink will not refresh the page(for using routerLink we will have to import RouterModule in Module) and if we use href then it will redirect the page but with refreshing the page.-->
+    <a routerLink="users/create">Add User</a> 
+  </mat-list-option>
+  <mat-divider></mat-divider>
+  <mat-list-option [value]="home">
+    <a routerLink="users/list">List Users</a>
+  </mat-list-option>
+  <mat-divider></mat-divider>
+</mat-selection-list>
+
